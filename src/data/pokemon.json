@@ -1,0 +1,72 @@
+[
+  {
+    "id": 1,
+    "name": "Bulbasaur",
+    "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png",
+    "type": ["Grass", "Poison"],
+    "generation": 1
+  },
+  {
+    "id": 2,
+    "name": "Charmander",
+    "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/4.png",
+    "type": ["Fire"],
+    "generation": 1
+  },
+  {
+    "id": 3,
+    "name": "Squirtle",
+    "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/7.png",
+    "type": ["Water"],
+    "generation": 1
+  },
+  {
+    "id": 4,
+    "name": "Pikachu",
+    "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/25.png",
+    "type": ["Electric"],
+    "generation": 1
+  },
+  {
+    "id": 5,
+    "name": "Mareep",
+    "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/179.png",
+    "type": ["Electric"],
+    "generation": 2
+  },
+  {
+    "id": 6,
+    "name": "Cyndaquil",
+    "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/155.png",
+    "type": ["Fire"],
+    "generation": 2
+  },
+  {
+    "id": 7,
+    "name": "Mudkip",
+    "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/258.png",
+    "type": ["Water"],
+    "generation": 3
+  },
+  {
+    "id": 8,
+    "name": "Treecko",
+    "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/252.png",
+    "type": ["Grass"],
+    "generation": 3
+  },
+  {
+    "id": 9,
+    "name": "Shinx",
+    "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/403.png",
+    "type": ["Electric"],
+    "generation": 4
+  },
+  {
+    "id": 10,
+    "name": "Piplup",
+    "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/393.png",
+    "type": ["Water"],
+    "generation": 4
+  }
+]
