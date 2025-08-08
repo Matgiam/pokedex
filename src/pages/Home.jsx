@@ -11,12 +11,11 @@ function Home (){
  <div>
   <h1>Pokedex</h1>
   <SearchFilter onSearch={setSearchTerm}/>
-  <button><Link to= "/pokemondetail">Pokemondetail</Link></button>
   <div className="pokemon-list">
     {filteredPokemon.map((pokemon)=>(
             
 <div key={pokemon.id}className="pokemonCard">
-<PokemonCard name={pokemon.name} image={pokemon.image}/>
+<PokemonCard id={pokemon.id} name={pokemon.name} image={pokemon.image}/>
 </div> 
 
   ))}

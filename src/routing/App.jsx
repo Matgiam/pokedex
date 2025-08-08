@@ -13,7 +13,7 @@ function App() {
      <Routes>
      <Route path='/' element = {<Home/>}/>
      <Route index element = {<Home/>}/>
-     <Route path='/pokemondetail' element = {<PokemonDetail/>}/>
+     <Route path='/pokemondetail/:id' element = {<PokemonDetail/>}/>
      </Routes>
      </BrowserRouter>
     </>
