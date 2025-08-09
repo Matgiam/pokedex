@@ -1,19 +1,31 @@
-import { Link } from "react-router"
-import PokemonDetail from "../pages/PokemonDetail";
- 
-function PokemonCard(props){
-    return(
-       
-<div key={props.id}className="pokemonCard">
-<h1 >{props.name}</h1>
-<Link to={`/pokemondetail/${props.id}`}>
-<img src={props.image} alt="" />
-</Link>
+import { Link } from "react-router";
+import '../styling/App.css';
 
-<h3>{props.type}</h3>
-<h4>{props.generation}</h4>
-</div> 
-    
-    )
+function PokemonCard({ id, name, image, type, isOwned, onToggle }) {
+  return (
+    <div className="pokemonCard">
+      <h2>{name}</h2>
+      <Link to={`/pokemondetail/${id}`}>
+        <img
+          src={image}
+          alt={name}
+          className={`pokemon-img ${isOwned ? "owned" : "missing"}`}
+        />
+      </Link>
+
+      <h3>{type}</h3>
+     
+
+      <label className="owned-label">
+        <input
+          type="checkbox"
+          checked={isOwned}
+          onChange={(e) => onToggle(id, e.target.checked)}
+        />{" "}
+        Owned
+      </label>
+    </div>
+  );
 }
+
 export default PokemonCard;
