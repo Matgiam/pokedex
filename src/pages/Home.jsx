@@ -2,6 +2,7 @@ import { useState } from "react";
 import DATA from "../data/pokemon.json";
 import PokemonCounter from "../components/PokemonCounter";
 import SearchFilter from "../components/SearchFilter";
+import GenerationCounter from "../components/GenerationCounter";
 import PokemonCard from "../components/PokemonCard";
 
 function Home() {
@@ -66,10 +67,11 @@ function Home() {
           (pokemon) => pokemon.generation === gen
         );
         if (genPokemon.length === 0) return null;
-
+const getOwnedCount = genPokemon.filter((p) => ownedPokemon[p.id]).length;
         return (
           <div key={gen}>
             <h1>Generation {gen}</h1>
+            <GenerationCounter count= {getOwnedCount} total={genPokemon.length}/>
             <div className="pokemon-list">
               {genPokemon.map((pokemon) => (
             <PokemonCard
