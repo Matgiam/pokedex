@@ -102,17 +102,18 @@ const getOwnedCount = genPokemon.filter((p) => ownedPokemon[p.id]).length;
             <h1>Generation {gen}</h1>
             <GenerationCounter count= {getOwnedCount} total={genPokemon.length}/>
             <div className="pokemon-list">
-              {genPokemon.map((pokemon) => (
-            <PokemonCard
-  key={pokemon.id}
-  id={pokemon.id}
-  name={pokemon.name}
-  image={pokemon.image}
-  type={pokemon.type}
-  isOwned={!!ownedPokemon[pokemon.id]}  // <-- pass this prop here
-  onToggle={handleToggleOwned}
-/>
-              ))}
+       {genPokemon.map((pokemon) => (
+  
+    <PokemonCard key={pokemon.id}
+      id={pokemon.id}
+      name={pokemon.name}
+      image={pokemon.image}
+      type={pokemon.type}
+      isOwned={!!ownedPokemon[pokemon.id]}
+      onToggle={handleToggleOwned}
+    />
+ 
+))}
             </div>
           </div>
         );
