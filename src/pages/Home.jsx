@@ -1,5 +1,5 @@
-import { useState } from "react";
-import DATA from "../data/pokemon.json";
+import { useState , useEffect} from "react";
+// import DATA from "../data/pokemon.json";
 import PokemonCounter from "../components/PokemonCounter";
 import SearchFilter from "../components/SearchFilter";
 import GenerationCounter from "../components/GenerationCounter";
@@ -8,8 +8,37 @@ import PokemonCard from "../components/PokemonCard";
 function Home() {
   const [searchTerm, setSearchTerm] = useState("");
   const [ownedPokemon, setOwnedPokemon] = useState({}); // { id: true/false }
+  const [pokemonList, setPokemonList] = useState([]);
+const getGeneration = (id) => {
+  if (id <= 151) return 1;
+  if (id <= 251) return 2;
+  if (id <= 386) return 3;
+  if (id <= 493) return 4;
+  if (id <= 649) return 5;
+  if (id <= 721) return 6;
+  if (id <= 809) return 7;
+  if (id <= 905) return 8;
+  return 9;
+};
 
-  const generations = [1, 2, 3, 4, 5];
+useEffect(() => {
+  fetch('https://pokeapi.co/api/v2/pokemon?limit=250')
+    .then(response => response.json())
+    .then(data => {
+      const mapped = data.results.map((p, index) => {
+        const id = index + 1;
+        return {
+          id,
+          name: p.name,
+          image: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png`,
+          type: [],
+          generation: getGeneration(id)
+        };
+      });
+      setPokemonList(mapped);
+    });
+}, []);
+  const generations = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
   const handleToggleOwned = (id, isOwned) => {
     setOwnedPokemon((prev) => ({
@@ -51,7 +80,7 @@ function Home() {
 
 
 
-  const filteredPokemon = DATA.filter((pokemon) =>
+  const filteredPokemon = pokemonList.filter((pokemon) =>
     pokemon.name.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
@@ -59,7 +88,7 @@ function Home() {
     <div>
       <h1>Pokedex</h1>
 
-      <PokemonCounter count={checkedCount} total={DATA.length} />
+      <PokemonCounter count={checkedCount} total={pokemonList.length} />
       <SearchFilter onSearch={setSearchTerm} />
 
       {generations.map((gen) => {
